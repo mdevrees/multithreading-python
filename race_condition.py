@@ -48,11 +48,11 @@ def main(fixed=False):
 
 if __name__ == "__main__":
     # indicate if you want with or without race condition fix
-    fixed = True
+    fixed = False
 
     start = time.time()
     for i in range(3):
         main(fixed)
         print("x = {1} after Iteration {0}".format(i, x))
     end = time.time()
-    print("Total time it took: {1}s".format(i, end-start))
+    print("Total time it took: {0}s".format(end-start))
