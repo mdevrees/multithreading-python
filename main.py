@@ -1,8 +1,8 @@
 import logging
 import threading
 import time
-from race_condition import FakeDatabase
-import concurrent.futures
+from fake_db import FakeDatabase
+x = 0
 
 
 def thread_function(name):
@@ -42,24 +42,17 @@ def multi_thread():
         logging.info("Main    : thread %d done", index)
 
 
-def race_condition():
-    format = "%(asctime)s: %(message)s"
-    logging.basicConfig(format=format, level=logging.INFO,
-                        datefmt="%H:%M:%S")
-
-    database = FakeDatabase()
-    logging.info("Testing update. Starting value is %d.", database.value)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        for index in range(2):
-            executor.submit(database.update, index)
-    logging.info("Testing update. Ending value is %d.", database.value)
-
 
 def main():
-    # single_thread()
+    single_thread()
     # multi_thread()
-    race_condition()
+    # race_condition()
 
 
 if __name__ == "__main__":
-    main()
+    start = time.time()
+    for i in range(5):
+        main()
+        print("x = {1} after Iteration {0}".format(i, x))
+    end = time.time()
+    print(end-start)
