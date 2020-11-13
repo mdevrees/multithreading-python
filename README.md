@@ -21,3 +21,4 @@ https://stackoverflow.com/questions/1665419/do-threads-have-a-distinct-heap
 https://realpython.com/intro-to-python-thr    
 https://dzone.com/articles/top-15-java-multithreading-concurrency-interview-q    
 https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+https://www.tutorialspoint.com/concurrency_in_python/concurrency_in_python_synchronizing_threads.htm
